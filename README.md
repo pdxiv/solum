@@ -27,38 +27,38 @@ type CPU struct {
 
 | opcode | mnemonic | description |
 | ------ | -------- | ----------- |
-| `00` | `nop_0` | no operation |
-| `01` | `nop_1` | no operation |
-| `02` | `or1` | flip low order bit of cx, cx ^= 1 |
-| `03` | `shl` | shift left cx register, cx <<= 1 |
-| `04` | `zero` | set cx register to zero, cx = 0 |
-| `05` | `if_cz` | if cx==0 execute next instruction |
-| `06` | `sub_ab` | subtract bx from ax, cx = ax - bx |
-| `07` | `sub_ac` | subtract cx from ax, ax = ax - cx |
-| `08` | `inc_a` | increment ax, ax = ax + 1 |
-| `09` | `inc_b` | increment bx, bx = bx + 1 |
-| `0a` | `dec_c` | decrement cx, cx = cx - 1 |
-| `0b` | `inc_c` | increment cx, cx = cx + 1 |
-| `0c` | `push_ax` | push ax on stack |
-| `0d` | `push_bx` | push bx on stack |
-| `0e` | `push_cx` | push cx on stack |
-| `0f` | `push_dx` | push dx on stack |
-| `10` | `pop_ax` | pop top of stack into ax |
-| `11` | `pop_bx` | pop top of stack into bx |
-| `12` | `pop_cx` | pop top of stack into cx |
-| `13` | `pop_dx` | pop top of stack into dx |
-| `14` | `jmp` | move ip to template |
-| `15` | `jmpb` | move ip backward to template |
-| `16` | `call` | call a procedure |
-| `17` | `ret` | return from a procedure |
-| `18` | `mov_cd` | move cx to dx, dx = cx |
-| `19` | `mov_ab` | move ax to bx, bx = ax |
-| `1a` | `mov_iab` | move instruction at address in bx to address in ax |
-| `1b` | `adr` | address of nearest template to ax |
-| `1c` | `adrb` | search backward for template |
-| `1d` | `adrf` | search forward for template |
-| `1e` | `mal` | allocate memory for daughter cell |
-| `1f` | `divide` | cell division |
+| `00` | `nop_0` | No operation performed |
+| `01` | `nop_1` | No operation performed |
+| `02` | `or1` | Toggle the least significant bit of CX |
+| `03` | `shl` | Shift the CX register left by one bit |
+| `04` | `zero` | Set CX register to zero |
+| `05` | `if_cz` | Skip next instruction if CX is zero |
+| `06` | `sub_ab` | Subtract BX from AX, store in CX |
+| `07` | `sub_ac` | Subtract CX from AX, store in AX |
+| `08` | `inc_a` | Increment AX by 1 |
+| `09` | `inc_b` | Increment BX by 1 |
+| `0a` | `dec_c` | Decrement CX by 1 |
+| `0b` | `inc_c` | Increment DX by 1 |
+| `0c` | `push_ax` | Push AX onto the stack |
+| `0d` | `push_bx` | Push BX onto the stack |
+| `0e` | `push_cx` | Push CX onto the stack |
+| `0f` | `push_dx` | Push DX onto the stack |
+| `10` | `pop_ax` | Pop from stack into AX |
+| `11` | `pop_bx` | Pop from stack into BX |
+| `12` | `pop_cx` | Pop from stack into CX |
+| `13` | `pop_dx` | Pop from stack into DX |
+| `14` | `jmp` | Jump forward |
+| `15` | `jmpb` | Jump backward |
+| `16` | `call` | Call a subroutine |
+| `17` | `ret` | Return from a subroutine |
+| `18` | `mov_cd` | Move value from CX to DX |
+| `19` | `mov_ab` | Move value from AX to BX |
+| `1a` | `mov_iab` | Move instruction from address in BX to address in AX |
+| `1b` | `adr` | Find address of the nearest template, store in AX |
+| `1c` | `adrb` | Search backward for a template, store in AX |
+| `1d` | `adrf` | Search forward for a template, store in AX |
+| `1e` | `mal` | Allocate memory for a new creature |
+| `1f` | `divide` | Trigger cell division |
 
 ## Communication between the CPUs and the soup
 
